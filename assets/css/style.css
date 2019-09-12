@@ -1,0 +1,29 @@
+body {
+    background-image: url("https://i.pinimg.com/originals/7b/29/af/7b29afd9786e22af764807bba9c7e1cd.jpg");
+    
+    background-repeat: no-repeat;
+    height: 780px;
+    background-size: cover;
+    margin-top: 40px;
+}
+
+h1 {
+    color: darkcyan;
+    
+}
+
+.panel-default {
+    color: antiquewhite;
+}
+.panel{ 
+color: antiquewhite;
+}
+
+.panel-heading {
+    color: antiquewhite;
+    font-style: italic;
+}
+
+.table {
+    color: antiquewhite;
+}
