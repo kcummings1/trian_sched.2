@@ -44,7 +44,7 @@ $("form")[0].reset();
 
 database.ref().on("child_added", function(childSnapshot) {
 
-var nextArr;
+var nextTrain;
 var minAway;
 
 console.log(`Moment: ${moment()}`);
@@ -55,10 +55,10 @@ var firstTrainNew = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, 
 var diffTime = moment().diff(moment(firstTrainNew), "minutes");
 var remainder = diffTime % childSnapshot.val().frequency;
 
-var minAway = childSnapshot.val().frequency - remainder;
+var frequency = childSnapshot.val().frequency - remainder;
 
 var nextTrain = moment().add(minAway, "minutes");
-nextTrain = moment(nextTrain).format("hh:mm");
+var minAway = moment(nextTrain).format("hh:mm");
 
 $("#tableContent").append("<tr><td>" + childSnapshot.val().name + 
 "</td><td>" + childSnapshot.val().destination +
