@@ -1,5 +1,5 @@
 console.log("TEST");
-
+moment().format();  
 
 $(document).ready(function() {
 var firebaseConfig = {
@@ -12,9 +12,9 @@ var firebaseConfig = {
     appId: "1:534272082764:web:166fc7f479c2caabbd45e9"
   };
   
-  firebase.initializeApp(firebaseConfig);
+  var app = firebase.initializeApp(firebaseConfig);
 
-  var database = firebase.database();
+  var database = firebase.database(app);
   
 var name;
 var destination;
@@ -35,7 +35,7 @@ database.ref().push({
   destination: destination,
   firstTime: firstTime,
   frequency: frequency,
-  dateAdded: firebase.database.serverValue.TIMESTAMP
+  //dateAdded: firebase.database.serverValue.TIMESTAMP
 });
 
 $("form")[0].reset();
@@ -46,6 +46,9 @@ database.ref().on("child_added", function(childSnapshot) {
 
 var nextArr;
 var minAway;
+
+console.log(`Moment: ${moment()}`);
+
 
 var firstTrainNew = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
 
